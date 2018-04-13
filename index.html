@@ -1,46 +1,88 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-  <meta charset="utf-8">
-  <title>My Shopping Cart</title>
-  <!-- Latest compiled and minified CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-    crossorigin="anonymous">
-</head>
-
-<body>
-  <div>
-    <nav class="navbar navbar-default">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="#">
-            My Shopping Cart
+    <head>
+        <meta charset="utf-8">
+        <title>My Shopping Cart</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <script src="http://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div>
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="#">My Shopping Cart
           </a>
+                    </div>
+                </div>
+            </nav>
+            <div class="container">
+                <div class="row">
+                    <div class="col col-xs-6 col-sm-6 col-md-9">
+                        <h1>Products</h1>
+                        <div class="row" id="products"></div>
+                    </div>
+                    <div class="col col-xs-6 col-sm-6 col-md-3">
+                        <h1>
+                            <span>Shopping Cart </span>
+                            <span id="itemsqty" class="badge">0</span>
+                        </h1>
+                        <div id="cart"></div>
+                        <!-- Button trigger modal -->
+                        <button id="shipping-address-show" type="button" class="btn btn-warning btn-sm">
+                            <span id="shipping-address-status" class="glyphicon glyphicon-exclamation-sign"></span>
+                            Shipping details
+                        </button>
+                        <hr/>
+                        <div id="totalreport"></div>
+                        <!-- Modal -->
+                        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                        <h4 class="modal-title" id="myModalLabel">Please provide shipping address</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form class="form-horyzontal">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" placeholder="Full name" id="fullname"/>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" placeholder="Zip" id="zip"/>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" placeholder="Street address (Line 1)" id="address1"/>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" placeholder="Street address (Line 2)" id="address2"/>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" placeholder="City" id="city"/>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" placeholder="State" id="state"/>
+                                            </div>
+                                            <div class="form-group">
+                                                <input class="form-control" placeholder="Phone" rows="5" id="phone"></input>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-primary" id="shipping-address-apply">OK</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </nav>
-    <div class="container">
-      <div class="row">
-        <div class="col col-sm-9">
-          <h1>Products</h1>
-          <div class="row" id="products">
-          </div>
-        </div>
-        <div class="col col-sm-3">
-          <h1>Shopping Cart</h1>
-          <div class="cart">
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <script src="http://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-    crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-    crossorigin="anonymous"></script>
-  <script src="cart.js"></script>
-</body>
-
+        <script src="cart.js"></script>
+    </body>
 </html>
