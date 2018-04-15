@@ -13,8 +13,7 @@
             <nav class="navbar navbar-default">
                 <div class="container-fluid">
                     <div class="navbar-header">
-                        <a class="navbar-brand" href="#">My Shopping Cart
-          </a>
+                        <a class="navbar-brand" href="#" onclick="window.location.reload(true);">My Shopping Cart</a>
                     </div>
                 </div>
             </nav>
@@ -27,16 +26,21 @@
                     <div class="col col-xs-6 col-sm-6 col-md-3">
                         <h1>
                             <span>Shopping Cart </span>
-                            <span id="itemsqty" class="badge">0</span>
                         </h1>
-                        <div id="cart"></div>
-                        <!-- Button trigger modal -->
-                        <button id="shipping-address-show" type="button" class="btn btn-warning btn-sm">
-                            <span id="shipping-address-status" class="glyphicon glyphicon-exclamation-sign"></span>
-                            Shipping details
-                        </button>
-                        <hr/>
-                        <div id="totalreport"></div>
+                        <div id="cartBody">
+                            <div id="cart"></div>
+                            <hr/>
+                            <!-- Button trigger modal -->
+                            <button id="shipping-address-show" type="button" class="btn btn-warning btn-sm">
+                                <span id="shipping-address-icon" class="glyphicon glyphicon-exclamation-sign"></span>
+                                <span>Shipping details</span>
+                            </button>
+                            <hr/>
+                            <div id="totalreport"></div>
+                            <div id="sendStatus">
+                                <button id="send" class="btn btn-primary" disabled>Send</button>
+                            </div>
+                        </div>
                         <!-- Modal -->
                         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                             <div class="modal-dialog" role="document">
@@ -48,27 +52,35 @@
                                         <h4 class="modal-title" id="myModalLabel">Please provide shipping address</h4>
                                     </div>
                                     <div class="modal-body">
-                                        <form class="form-horyzontal">
-                                            <div class="form-group">
-                                                <input type="text" class="form-control" placeholder="Full name" id="fullname"/>
+                                        <form id="shipToForm" class="form-horyzontal">
+                                            <p>Your address</p>
+                                            <div class="form-group has-feedback">
+                                                <input type="text" class="form-control" placeholder="Full name" name="fullname" id="fullname" required="required">
+                                                <span class="glyphicon form-control-feedback"></span>
                                             </div>
-                                            <div class="form-group">
-                                                <input type="text" class="form-control" placeholder="Zip" id="zip"/>
+                                            <div class="form-group has-feedback">
+                                                <input type="text" class="form-control" placeholder="Zip" id="zip" name="zip" required="required" pattern="[0-9-]{4,}">
+                                                <span class="glyphicon form-control-feedback"></span>
                                             </div>
-                                            <div class="form-group">
-                                                <input type="text" class="form-control" placeholder="Street address (Line 1)" id="address1"/>
+                                            <div class="form-group has-feedback">
+                                                <input type="text" class="form-control" placeholder="Street address (Line 1)" id="address1" name="address1" required="required"/>
+                                                <span class="glyphicon form-control-feedback"></span>
                                             </div>
-                                            <div class="form-group">
-                                                <input type="text" class="form-control" placeholder="Street address (Line 2)" id="address2"/>
+                                            <div class="form-group has-feedback">
+                                                <input type="text" class="form-control" placeholder="Street address (Line 2)" id="address2" name="address2"/>
+                                                <span class="glyphicon form-control-feedback"></span>
                                             </div>
-                                            <div class="form-group">
-                                                <input type="text" class="form-control" placeholder="City" id="city"/>
+                                            <div class="form-group has-feedback">
+                                                <input type="text" class="form-control" placeholder="City" id="city" required="required" name="city"/>
+                                                <span class="glyphicon form-control-feedback"></span>
                                             </div>
-                                            <div class="form-group">
-                                                <input type="text" class="form-control" placeholder="State" id="state"/>
+                                            <div class="form-group has-feedback">
+                                                <input type="text" class="form-control" placeholder="State" id="state" required="required" name="state"/>
+                                                <span class="glyphicon form-control-feedback"></span>
                                             </div>
-                                            <div class="form-group">
-                                                <input class="form-control" placeholder="Phone" rows="5" id="phone"></input>
+                                            <div class="form-group has-feedback">
+                                                <input type="phone" class="form-control" placeholder="Phone" id="phone" required="required" name="phone"</input>
+                                                <span class="glyphicon form-control-feedback"></span>
                                             </div>
                                         </form>
                                     </div>
@@ -81,8 +93,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <script src="cart.js"></script>
+                <script src="cart.js"></script>
     </body>
 </html>
